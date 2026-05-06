@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vị Thành Nam - Tạp chí ẩm thực Cao Cấp</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --gold-light: #f2d65d;
+  --gold-main: #f7cb46;
+  --gold-dark: #e6ad43;
+  --white: #fefefd;
+  --black-bg: #231f21;
+  --card-bg: rgba(255, 255, 255, 0.03); /* Hiệu ứng kính mờ nhẹ */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-gray: #a0a0a0;
+}
+/* LIGHT MODE */
+body.light-mode {
+  --black-bg: #f5f5f5;
+  --white: #111;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --text-gray: #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; transition: all 0.3s ease; }
+
+body {
+  background-color: var(--black-bg);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* 1. NÂNG CẤP HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.logo img { height: 60px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(247, 203, 70, 0.3)); }
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo img {
+  height: 140px; /* logo to hơn header */
+  object-fit: contain;
+}
+header {
+  height: 80px; /* giữ header cố định */
+  padding: 0 5%;
+}
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0 20px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-main);
+}
+
+nav a:hover::after { width: 100%; }
+
+nav a.active { color: var(--gold-main); }
+
+/* 2. NÂNG CẤP HERO SECTION */
+.hero {
+  position: relative;
+  height: 450px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+/* slides */
+.slides {
+  position: absolute;
+  inset: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  z-index: 1;
+}
+
+/* content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 60px;
+  animation: fadeUp 1s ease;
+}
+
+/* animation chữ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(247,203,70,0.15);
+  color: var(--gold-main);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: var(--gold-main);
+}
+
+.desc {
+  margin: 20px 0 30px;
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.btn-hero {
+  background: transparent;
+  border: 2px solid var(--gold-main);
+  color: var(--gold-main);
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-hero:hover {
+  background: var(--gold-main);
+  color: var(--black-bg);
+}
+
+/* dots */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.dot {
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  margin-right: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--gold-main);
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white); /* QUAN TRỌNG */
+}
+.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+/* overlay tối bên trái */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+/* tag nhỏ */
+.tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--gold-main);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* tiêu đề */
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hero-content {
+  color: #fff !important;
+}
+
+/* chữ vàng */
+.hero h1 span {
+  color: var(--gold-main);
+}
+
+/* mô tả */
+.desc {
+  margin: 20px 0 30px;
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+/* nút */
+.btn-hero {
+  background: transparent;
+  border: 2px solid var(--gold-main);
+  color: var(--gold-main);
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-hero:hover {
+  background: var(--gold-main);
+  color: var(--black-bg);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 550px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #fff !important;
+}
+.btn-hero {
+  background: transparent;
+  border: 2px solid var(--gold-main);
+  color: var(--gold-main);
+  padding: 12px px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.btn-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--gold-main);
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.btn-hero:hover::before {
+  width: 100%;
+}
+
+.btn-hero:hover {
+  color: var(--black-bg);
+}
+
+.hero h1 span {
+  color: var(--gold-main);
+}
+
+blockquote {
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--gold-light);
+  transform: skewX(-15deg);
+  margin-top: 30px;
+  opacity: 0.9;
+}
+
+/* 3. LAYOUT & CARDS */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 50px;
+  width: 90%;
+  max-width: 1400px;
+  margin: 80px auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--gold-main);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-10px);
+  border-color: var(--gold-main);
+}
+
+.card-img {
+  height: 200px;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-content { padding: 25px; }
+
+.meta { font-size: 11px; font-weight: 700; color: var(--gold-main); text-transform: uppercase; margin-bottom: 10px; }
+
+.card h4 { font-size: 18px; margin-bottom: 12px; line-height: 1.4; }
+
+/* 4. SIDEBAR & ĐĂNG KÝ */
+.box {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.cat-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--glass-border);
+  cursor: pointer;
+}
+
+.cat-item:hover { color: var(--gold-main); padding-left: 10px; }
+
+.subscribe-box {
+  background: linear-gradient(135deg, var(--gold-main), var(--gold-dark));
+  color: var(--black-bg);
+  text-align: center;
+}
+
+.subscribe-box h3 { color: var(--black-bg); font-weight: 800; }
+
+.subscribe-box input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  margin: 20px 0 10px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.btn-premium {
+  width: 100%;
+  padding: 15px;
+  background: var(--black-bg);
+  color: var(--gold-main);
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* khoảng cách giữa các icon */
+}
+
+.btn-premium:hover { transform: scale(1.02); }
+.category-section {
+  width: 90%;
+  max-width: 1400px;
+  margin: 80px auto;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.category-col h3 {
+  color: var(--gold-main);
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.category-col ul {
+  list-style: none;
+}
+
+.category-col li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-col li:hover {
+  color: var(--gold-main);
+  padding-left: 5px;
+}
+@media (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.category-col li::before {
+  content: "•";
+  color: var(--gold-main);
+  margin-right: 8px;
+}
+.category-col {
+  position: relative;
+}
+
+.category-col::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--gold-main),
+    transparent
+  );
+  opacity: 0.3;
+}
+.category-col:last-child::after {
+  display: none;
+}
+.category-section .section-title h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.category-section .section-title h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-main), transparent);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(247,203,70,0.5);
+}
+@media (max-width: 1024px) {
+  .container { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 48px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png">
+  </div>
+
+  <nav>
+    <a class="active">TRANG CHỦ</a>
+    <a>CHUYÊN MỤC</a>
+    <a>MINIGAME</a>
+  </nav>
+
+  <div class="header-icons">
+    <div class="icon"><i class="fa fa-search"></i></div>
+    <div class="icon"><i class="fa fa-user"></i></div>
+    <div class="icon gold"><i class="fa fa-sun" id="toggle-theme"></i></div>
+  </div>
+</header>
+
+<div class="hero">
+
+  <!-- SLIDES -->
+  <div class="slides">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512058560366-cd242d45869d?auto=format&fit=crop&w=1600&q=80');"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+    <div class="tag">ẨM THỰC</div>
+
+    <h1>
+      Khám phá tinh hoa ẩm thực
+       <span>Việt Nam</span>
+    </h1>
+
+    <p class="desc">
+      Hành trình khám phá những món ăn đậm đà bản sắc, 
+      hương vị độc đáo từ khắp mọi miền đất nước.
+    </p>
+
+    <button class="btn-hero">
+      KHÁM PHÁ NGAY <i class="fa fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <!-- DOTS -->
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+</div>
+
+<div class="container">
+  <main>
+    <div class="section-header">
+      <div class="section-title">
+        <h2>TIN NỔI BẬT</h2>
+      </div>
+      <a href="#" style="color: var(--gold-main); text-decoration: none; font-weight: 700; font-size: 13px;">XEM TẤT CẢ <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1567033161758-520a9a5f400b?auto=format&fit=crop&w=600&q=80" alt="Food">
+        </div>
+        <div class="card-content">
+          <p class="meta">3 GIỜ TRƯỚC • ĐẶC SẢN</p>
+          <h4>Phở Bò Nam Định: Hương Vị Gây Thương Nhớ</h4>
+          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Bí mật nằm trong nồi nước dùng trong vắt, đậm đà từ xương ống...</p>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="Food">
+        </div>
+        <div class="card-content">
+          <p class="meta">5 GIỜ TRƯỚC • XU HƯỚNG</p>
+          <h4>Ẩm Thực Chay: Lối Sống Mới Của Người Trẻ</h4>
+          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Không chỉ là tôn giáo, ăn chay giờ đây là một phong cách sống khỏe...</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1512058560366-cd242d45869d?auto=format&fit=crop&w=600&q=80" alt="Food">
+        </div>
+        <div class="card-content">
+          <p class="meta">8 GIỜ TRƯỚC • DU LỊCH</p>
+          <h4>Bản Đồ Món Ngon Ven Đường Sài Gòn</h4>
+          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Cùng khám phá những "viên ngọc quý" ẩn mình trong các con hẻm...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <div class="box">
+      <h3 style="color: var(--gold-main); font-size: 18px; margin-bottom: 20px;">CHUYÊN MỤC</h3>
+      <div class="cat-item"><span>🍜</span> Món ngon mỗi ngày</div>
+      <div class="cat-item"><span>📍</span> Đặc sản vùng miền</div>
+      <div class="cat-item"><span>🥗</span> Thực dưỡng & Chay</div>
+      <div class="cat-item"><span>🍷</span> Đồ uống & Bar</div>
+    </div>
+    
+    <div class="box subscribe-box">
+      <h3>BẢN TIN CAO CẤP</h3>
+      <p style="font-size: 13px; opacity: 0.9;">Nhận thông tin về các sự kiện ẩm thực đặc biệt và ưu đãi từ các đối tác.</p>
+      <input type="email" placeholder="Địa chỉ email của bạn">
+      <button class="btn-premium">ĐĂNG KÝ NGAY</button>
+    </div>
+  </aside>
+</div>
+<section class="category-section">
+  <div class="section-title">
+    <h2>CHUYÊN MỤC</h2>
+  </div>
+
+  <div class="category-grid">
+
+    <!-- VỊ TRĂM NĂM -->
+    <div class="category-col">
+      <h3>VỊ TRĂM NĂM</h3>
+      <ul>
+        <li>Phở bò Nam Định: Hơn một thế kỷ vang danh ẩm thực Việt</li>
+        <li>Tìm về thức quà tiến vua xưa của Thành Nam</li>
+        <li>Bát bún đũa của người thợ dệt</li>
+        <li>Trăm năm thương nhớ xíu páo Thành Nam</li>
+        <li>Về Thành Nam thưởng thức món bánh gai truyền thống</li>
+      </ul>
+    </div>
+
+    <!-- VỊ PHỐ -->
+    <div class="category-col">
+      <h3>VỊ PHỐ</h3>
+      <ul>
+        <li>Bản đồ ẩm thực: Ăn gì cho no?</li>
+        <li>Bản đồ ẩm thực: Ăn vặt xế chiều</li>
+        <li>Bản đồ ẩm thực: Quà quê Thành Nam</li>
+      </ul>
+    </div>
+
+    <!-- VỊ TRUYỀN -->
+    <div class="category-col">
+      <h3>VỊ TRUYỀN</h3>
+      <ul>
+        <li>Mâm cơm xưa của người Bắc</li>
+        <li>Nét tinh tế trong ẩm thực cung đình</li>
+        <li>Gia vị truyền thống làm nên hồn Việt</li>
+      </ul>
+    </div>
+
+    <!-- VỊ NHÀ -->
+    <div class="category-col">
+      <h3>VỊ NHÀ</h3>
+      <ul>
+        <li>Bữa cơm gia đình ấm cúng</li>
+        <li>Món ăn tuổi thơ khó quên</li>
+        <li>Ẩm thực gắn liền ký ức</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<footer style="padding: 50px 5%; border-top: 1px solid var(--glass-border); text-align: center;">
+  <img src="logo.png" alt="Logo" style="height: 40px; margin-bottom: 20px; opacity: 0.5;">
+  <p style="font-size: 12px; color: var(--text-gray);">© 2026 VỊ THÀNH NAM. ALL RIGHTS RESERVED.</p>
+</footer>
+<script>
+const toggleBtn = document.getElementById("toggle-theme");
+
+// load trạng thái đã lưu
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light-mode");
+}
+
+// click đổi mode
+toggleBtn.onclick = () => {
+  document.body.classList.toggle("light-mode");
+
+  if (document.body.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
+};
+
+
+</script>
+<script>
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let index = 0;
+
+function showSlide(i) {
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active"));
+
+  slides[i].classList.add("active");
+  dots[i].classList.add("active");
+}
+
+function nextSlide() {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}
+
+// auto chạy
+setInterval(nextSlide, 4000);
+
+// click dot
+dots.forEach((dot, i) => {
+  dot.onclick = () => {
+    index = i;
+    showSlide(index);
+  };
+});
+</script>
+
+</body>
+</html>
+</body>
+</html>
