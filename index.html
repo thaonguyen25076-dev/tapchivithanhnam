@@ -95,7 +95,214 @@ nav a::after {
 nav a:hover::after { width: 100%; }
 
 nav a.active { color: var(--gold-main); }
+/* MEGA MENU */
 
+.mega-wrapper{
+  position: relative;
+}
+
+.mega-link{
+  cursor: pointer;
+}
+
+.mega-menu{
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+
+  width: 1100px;
+
+  background: rgba(18,18,18,0.96);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 25px;
+
+  padding: 40px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4,1fr);
+
+  gap: 40px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: 0.35s ease;
+
+  z-index: 999;
+}
+
+/* hiện menu */
+.mega-wrapper:hover .mega-menu{
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* cột */
+.mega-col h3{
+  color: var(--gold-main);
+
+  font-size: 15px;
+
+  margin-bottom: 18px;
+
+  letter-spacing: 1px;
+}
+
+.mega-col ul{
+  list-style: none;
+}
+
+.mega-col li{
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  opacity: 0.75;
+
+  margin-bottom: 10px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+/* hover bài */
+.mega-col li:hover{
+  color: var(--gold-main);
+
+  opacity: 1;
+
+  transform: translateX(6px);
+}
+
+/* line chia */
+.mega-col{
+  position: relative;
+}
+
+.mega-menu{
+  position: absolute;
+
+  top: 45px;
+
+  left: 50%;
+
+  transform: translateX(-50%) translateY(20px);
+
+  width: 1100px;
+
+  background: rgba(18,18,18,0.96);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 25px;
+
+  padding: 40px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4,1fr);
+
+  gap: 40px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: 0.35s ease;
+
+  z-index: 999;
+}
+
+/* line giữa các cột */
+
+.mega-col{
+  position:relative;
+
+  padding-right:25px;
+}
+
+/* line glow */
+
+.mega-col:not(:last-child)::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:-20px;
+
+  width:1px;
+  height:100%;
+
+  background:
+  linear-gradient(
+  to bottom,
+  transparent,
+  rgba(247,203,70,0.45),
+  transparent);
+
+  box-shadow:
+  0 0 12px rgba(247,203,70,0.2);
+}
+@media(max-width:1100px){
+
+.mega-menu{
+  width: 95vw;
+
+  grid-template-columns: 1fr 1fr;
+}
+
+}
+.food-hero{
+  position:relative;
+  height:75vh;
+  overflow:hidden;
+}
+
+.food-hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:end;
+
+  padding:80px;
+
+  background:linear-gradient(
+  transparent,
+  rgba(0,0,0,0.85));
+}
+
+@media(max-width:700px){
+
+.mega-menu{
+  grid-template-columns: 1fr;
+
+  max-height: 70vh;
+
+  overflow-y: auto;
+}
+
+}
 /* 2. NÂNG CẤP HERO SECTION */
 .hero {
   position: relative;
@@ -110,13 +317,26 @@ nav a.active { color: var(--gold-main); }
   inset: 0;
 }
 
-.slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
+.slide{
+  position:absolute;
+  inset:0;
+
+  background-size:cover;
+  background-position:center;
+
+  opacity:0;
+
+  transform:scale(1.08);
+
+  transition:
+  opacity 1s ease,
+  transform 6s ease;
+}
+
+.slide.active{
+  opacity:1;
+
+  transform:scale(1);
 }
 
 .slide.active {
@@ -393,6 +613,11 @@ blockquote {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
 }
+li a{
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+}
 
 .card {
   background: var(--card-bg);
@@ -516,7 +741,126 @@ blockquote {
     grid-template-columns: 1fr 1fr;
   }
 }
+nav{
+  display:flex;
+  gap:35px;
+}
+nav a:hover{
+  color:var(--gold-main);
+}
+.featured-post{
+  position:relative;
 
+  height:650px;
+
+  border-radius:36px;
+
+  overflow:hidden;
+
+  margin-bottom:70px;
+
+  box-shadow:
+  0 30px 80px rgba(0,0,0,0.4);
+}
+
+/* image */
+
+.featured-post img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:6s ease;
+}
+
+/* hover zoom */
+
+.featured-post:hover img{
+  transform:scale(1.06);
+}
+
+/* overlay */
+
+.featured-overlay{
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:flex-end;
+
+  padding:70px;
+
+  background:
+  linear-gradient(
+  to top,
+  rgba(0,0,0,0.92),
+  rgba(0,0,0,0.2),
+  transparent);
+}
+
+/* tag */
+
+.featured-tag{
+  width:max-content;
+
+  padding:8px 18px;
+
+  border-radius:999px;
+
+  background:
+  rgba(247,203,70,0.14);
+
+  border:
+  1px solid rgba(247,203,70,0.35);
+
+  color:var(--gold-main);
+
+  font-size:12px;
+
+  font-weight:800;
+
+  letter-spacing:2px;
+
+  margin-bottom:20px;
+
+  backdrop-filter:blur(10px);
+}
+
+/* title */
+
+.featured-overlay h2{
+  font-size:64px;
+
+  line-height:1.05;
+
+  max-width:850px;
+
+  color:#fff;
+
+  font-weight:800;
+
+  margin-bottom:20px;
+
+  text-shadow:
+  0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* desc */
+
+.featured-overlay p{
+  max-width:600px;
+
+  font-size:18px;
+
+  line-height:1.8;
+
+  color:rgba(255,255,255,0.82);
+}
 @media (max-width: 600px) {
   .category-grid {
     grid-template-columns: 1fr;
@@ -527,8 +871,94 @@ blockquote {
   color: var(--gold-main);
   margin-right: 8px;
 }
-.category-col {
-  position: relative;
+.category-col{
+  position:relative;
+
+  padding-right:25px;
+}
+
+/* line glow */
+
+.category-col:not(:last-child)::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:-20px;
+
+  width:1px;
+  height:100%;
+
+  background:
+  linear-gradient(
+  to bottom,
+  transparent,
+  rgba(247,203,70,0.45),
+  transparent);
+
+  box-shadow:
+  0 0 12px rgba(247,203,70,0.2);
+}
+.categories-grid{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:40px;
+}
+.categories-grid{
+  position:relative;
+}
+.categories-grid::before,
+.categories-grid::after{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  bottom:0;
+
+  width:1px;
+
+  background:
+  linear-gradient(
+  to bottom,
+  transparent,
+  rgba(247,203,70,0.45),
+  transparent);
+
+  box-shadow:
+  0 0 12px rgba(247,203,70,0.2);
+}
+
+.categories-grid::before{
+  left:25%;
+}
+
+.categories-grid::after{
+  left:50%;
+}
+.categories-grid .line-3{
+  position:absolute;
+
+  top:0;
+  bottom:0;
+
+  left:75%;
+
+  width:1px;
+
+  background:
+  linear-gradient(
+  to bottom,
+  transparent,
+  rgba(247,203,70,0.45),
+  transparent);
+
+  box-shadow:
+  0 0 12px rgba(247,203,70,0.2);
 }
 
 .category-col::after {
@@ -566,6 +996,78 @@ blockquote {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(247,203,70,0.5);
 }
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  radial-gradient(circle at top right,
+  rgba(247,203,70,0.18),
+  transparent 30%);
+  z-index:1;
+}
+.card{
+  backdrop-filter: blur(12px);
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.25);
+}
+.card:hover{
+  transform: translateY(-12px) scale(1.01);
+  box-shadow:
+  0 25px 50px rgba(0,0,0,0.45);
+}
+.featured-post{
+  position:relative;
+  height:500px;
+  border-radius:30px;
+  overflow:hidden;
+  margin-bottom:50px;
+}
+
+.featured-post img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.featured-overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:50px;
+  background:linear-gradient(
+  transparent,
+  rgba(0,0,0,0.9));
+}
+.mega-col li a{
+  display:block;
+  margin-left:-2px;
+}
+.mega-col ul{
+  padding-left:0;
+}
+
+.mega-col li{
+  list-style:none;
+}
+
+.mega-col li a{
+  display:block;
+}
+.mega-col li a,
+.category-col li a{
+  color: inherit;
+
+  text-decoration: none;
+
+  font: inherit;
+
+  display: block;
+
+  width: 100%;
+}
+
 @media (max-width: 1024px) {
   .container { grid-template-columns: 1fr; }
   .hero h1 { font-size: 48px; }
@@ -578,10 +1080,75 @@ blockquote {
   <div class="logo">
     <img src="logo.png">
   </div>
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <nav>
     <a class="active">TRANG CHỦ</a>
-    <a>CHUYÊN MỤC</a>
+    <div class="mega-wrapper">
+
+  <a class="mega-link">CHUYÊN MỤC</a>
+
+  <div class="mega-menu">
+
+    <!-- VỊ TRĂM NĂM -->
+    <div class="mega-col">
+      <h3>VỊ TRĂM NĂM</h3>
+
+      <ul>
+        <li>Phở bò Nam Định: Hơn một thế kỷ vang danh ẩm thực Việt</li>
+        <li>Tìm về thức quà tiến vua xưa của Thành Nam</li>
+        <li>Bát bún đũa của người thợ dệt</li>
+        <li>Trăm năm thương nhớ xíu páo Thành Nam</li>
+        <li>Về Thành Nam thưởng thức món bánh gai truyền thống</li>
+      </ul>
+    </div>
+
+    <!-- VỊ PHỐ -->
+    <div class="mega-col">
+      <h3>VỊ PHỐ</h3>
+
+      <ul>
+        <li>
+  <a href="food-map.html">
+  Bản đồ ẩm thực: Ăn gì cho no?
+  </a>
+</li>
+        <li>
+  <a href="an-vat-xe-chieu.html">
+    Bản đồ ẩm thực: Ăn vặt xế chiều
+  </a>
+</li>
+        <li>
+  <a href="qua-que-thanh-nam.html">
+    Bản đồ ẩm thực: Quà quê Thành Nam
+  </a>
+</li>
+      </ul>
+    </div>
+
+    <!-- VỊ TRUYỀN -->
+    <div class="mega-col">
+      <h3>VỊ TRUYỀN</h3>
+
+      <ul>
+        <li>Mâm cơm xưa của người Bắc</li>
+        <li>Nét tinh tế trong ẩm thực cung đình</li>
+        <li>Gia vị truyền thống làm nên hồn Việt</li>
+      </ul>
+    </div>
+
+    <!-- VỊ NHÀ -->
+    <div class="mega-col">
+      <h3>VỊ NHÀ</h3>
+
+      <ul>
+        <li>Bữa cơm gia đình ấm cúng</li>
+        <li>Món ăn tuổi thơ khó quên</li>
+        <li>Ẩm thực gắn liền ký ức</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
     <a>MINIGAME</a>
   </nav>
 
@@ -602,6 +1169,7 @@ blockquote {
   </div>
 
   <!-- CONTENT -->
+   
   <div class="hero-content">
     <div class="tag">ẨM THỰC</div>
 
@@ -637,12 +1205,18 @@ blockquote {
       </div>
       <a href="#" style="color: var(--gold-main); text-decoration: none; font-weight: 700; font-size: 13px;">XEM TẤT CẢ <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-    
+<div class="featured-post">
+  <img src="dac biet.webp">
+  <div class="featured-overlay">
+      <span>ĐẶC BIỆT</span>
+      <h2>Phở Nam Định và câu chuyện trăm năm</h2>
+  </div>
+</div>
     <div class="grid">
       <!-- Card 1 -->
       <div class="card">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1567033161758-520a9a5f400b?auto=format&fit=crop&w=600&q=80" alt="Food">
+          <img src="pho nam dinh.jpg">
         </div>
         <div class="card-content">
           <p class="meta">3 GIỜ TRƯỚC • ĐẶC SẢN</p>
@@ -666,7 +1240,7 @@ blockquote {
       <!-- Card 3 -->
       <div class="card">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1512058560366-cd242d45869d?auto=format&fit=crop&w=600&q=80" alt="Food">
+          <img src="am-thuc-sai-gon.jpg">
         </div>
         <div class="card-content">
           <p class="meta">8 GIỜ TRƯỚC • DU LỊCH</p>
@@ -717,9 +1291,21 @@ blockquote {
     <div class="category-col">
       <h3>VỊ PHỐ</h3>
       <ul>
-        <li>Bản đồ ẩm thực: Ăn gì cho no?</li>
-        <li>Bản đồ ẩm thực: Ăn vặt xế chiều</li>
-        <li>Bản đồ ẩm thực: Quà quê Thành Nam</li>
+        <li>
+  <a href="food-map.html">
+    Bản đồ ẩm thực: Ăn gì cho no?
+  </a>
+</li>
+       <li>
+  <a href="an-vat-xe-chieu.html">
+    Bản đồ ẩm thực: Ăn vặt xế chiều
+  </a>
+</li>
+        <li>
+  <a href="qua-que-thanh-nam.html">
+    Bản đồ ẩm thực: Quà quê Thành Nam
+  </a>
+</li>
       </ul>
     </div>
 
@@ -742,7 +1328,7 @@ blockquote {
         <li>Ẩm thực gắn liền ký ức</li>
       </ul>
     </div>
-
+<div class="line-3"></div>
   </div>
 </section>
 <footer style="padding: 50px 5%; border-top: 1px solid var(--glass-border); text-align: center;">
