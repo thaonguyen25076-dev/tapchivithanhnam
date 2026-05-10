@@ -633,10 +633,24 @@ li a{
   border-color: var(--gold-main);
 }
 
-.card-img {
-  height: 200px;
-  background: #1a1a1a;
-  overflow: hidden;
+.card-img{
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  background:#1a1a1a;
+
+  overflow:hidden;
+}
+.card-img img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
 }
 
 .card-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -735,6 +749,17 @@ li a{
 .category-col li:hover {
   color: var(--gold-main);
   padding-left: 5px;
+}
+.categories{
+  position:relative;
+
+  padding:140px 0 120px;
+
+  margin-top:100px;
+
+  border-radius:40px 40px 0 0;
+
+  overflow:hidden;
 }
 @media (max-width: 900px) {
   .category-grid {
@@ -1067,7 +1092,191 @@ nav a:hover{
 
   width: 100%;
 }
+/* ===== CINEMATIC FOOTER ===== */
 
+.mega-footer{
+  position: relative;
+
+  margin-top: 120px;
+
+  background:
+  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80')
+  center/cover no-repeat;
+
+  overflow: hidden;
+
+  color: white;
+}
+
+/* overlay tối */
+
+.footer-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.82)
+  );
+
+  backdrop-filter: blur(2px);
+}
+
+/* layout */
+
+.footer-content{
+  position: relative;
+  z-index: 2;
+
+  width: 90%;
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 100px 0 70px;
+
+  display: grid;
+
+  grid-template-columns: 1.3fr 1fr 1fr;
+
+  gap: 100px;
+}
+
+/* logo */
+
+.footer-logo{
+  width: 170px;
+
+  margin-bottom: 25px;
+
+  object-fit: contain;
+}
+
+/* text */
+
+.footer-brand p{
+  font-size: 17px;
+
+  line-height: 1.9;
+
+  color: rgba(255,255,255,0.78);
+
+  max-width: 500px;
+}
+
+/* socials */
+
+.footer-socials{
+  display:flex;
+
+  gap:22px;
+
+  margin-top:30px;
+}
+
+.footer-socials i{
+  font-size:28px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.footer-socials i:hover{
+  color: var(--gold-main);
+
+  transform: translateY(-4px);
+}
+
+/* titles */
+
+.footer-links h3,
+.footer-contact h3{
+  font-size: 34px;
+
+  margin-bottom: 35px;
+
+  color: #fff;
+
+  font-weight: 700;
+}
+
+/* links */
+
+.footer-links{
+  display:flex;
+
+  flex-direction:column;
+}
+
+.footer-links a{
+  color: rgba(255,255,255,0.78);
+
+  text-decoration:none;
+
+  margin-bottom:18px;
+
+  font-size:18px;
+
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  color: var(--gold-main);
+
+  transform: translateX(6px);
+}
+
+/* contact */
+
+.footer-contact p{
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+  margin-bottom:25px;
+
+  font-size:18px;
+
+  color: rgba(255,255,255,0.8);
+}
+
+.footer-contact i{
+  color: var(--gold-main);
+}
+
+/* bottom */
+
+.footer-bottom{
+  position:relative;
+  z-index:2;
+
+  text-align:center;
+
+  padding:30px;
+
+  border-top:
+  1px solid rgba(255,255,255,0.1);
+
+  color: rgba(255,255,255,0.65);
+
+  font-size:15px;
+}
+
+/* mobile */
+
+@media(max-width:900px){
+
+  .footer-content{
+    grid-template-columns:1fr;
+
+    gap:60px;
+  }
+
+}
 @media (max-width: 1024px) {
   .container { grid-template-columns: 1fr; }
   .hero h1 { font-size: 48px; }
@@ -1093,12 +1302,7 @@ nav a:hover{
     <div class="mega-col">
       <h3>VỊ TRĂM NĂM</h3>
 
-      <ul>
-        <li>Phở bò Nam Định: Hơn một thế kỷ vang danh ẩm thực Việt</li>
-        <li>Tìm về thức quà tiến vua xưa của Thành Nam</li>
-        <li>Bát bún đũa của người thợ dệt</li>
-        <li>Trăm năm thương nhớ xíu páo Thành Nam</li>
-        <li>Về Thành Nam thưởng thức món bánh gai truyền thống</li>
+   
       </ul>
     </div>
 
@@ -1122,7 +1326,37 @@ nav a:hover{
     Bản đồ ẩm thực: Quà quê Thành Nam
   </a>
 </li>
-      </ul>
+      <ul>
+  <li>
+  <a href="bat-bun-dua.html">
+    Bát bún đũa của người công nhân dệt
+  </a>
+</li>
+
+  <li>
+  <a href="pho-bo-nam-dinh.html">
+    Phở bò Nam Định: Hơn một thế kỷ vang danh ẩm thực Việt
+  </a>
+</li>
+
+  <li>
+  <a href="qua-tien-vua.html">
+    Tìm về thức quà tiến vua của Thành Nam
+  </a>
+</li>
+
+  <li>
+  <a href="xiu-pao-thanh-nam.html">
+    Trăm năm thương nhớ xíu páo Thành Nam
+  </a>
+</li>
+
+      <li>
+  <a href="banh-gai-thanh-nam.html">
+    Về Thành Nam thưởng thức bánh gai truyền thống
+  </a>
+</li>
+</ul>
     </div>
 
     <!-- VỊ TRUYỀN -->
@@ -1216,38 +1450,163 @@ nav a:hover{
       <!-- Card 1 -->
       <div class="card">
         <div class="card-img">
-          <img src="pho nam dinh.jpg">
+          <img src="thumb ăn gì cho no.png">
         </div>
         <div class="card-content">
           <p class="meta">3 GIỜ TRƯỚC • ĐẶC SẢN</p>
-          <h4>Phở Bò Nam Định: Hương Vị Gây Thương Nhớ</h4>
-          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Bí mật nằm trong nồi nước dùng trong vắt, đậm đà từ xương ống...</p>
+          <h4>Bản đồ ẩm thực: Ăn gì cho no?</h4>
+          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Không chỉ gợi nhớ về một vùng
+
+địa linh nhân kiệt, Thành Nam còn khiến...</p>
         </div>
       </div>
       
       <!-- Card 2 -->
       <div class="card">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="Food">
+          <img src="thumb ăn vặt xế chiều.png" alt="Food">
         </div>
         <div class="card-content">
           <p class="meta">5 GIỜ TRƯỚC • XU HƯỚNG</p>
-          <h4>Ẩm Thực Chay: Lối Sống Mới Của Người Trẻ</h4>
-          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Không chỉ là tôn giáo, ăn chay giờ đây là một phong cách sống khỏe...</p>
+          <h4>Bản đồ ẩm thực: Ăn vặt xế chiều</h4>
+          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Thành Nam chính là thiên đường ăn vặt,
+hứa hẹn mang đến vô vàn lựa chọn cho
+những tín đồ sành ăn.</p>
         </div>
       </div>
 
       <!-- Card 3 -->
       <div class="card">
         <div class="card-img">
-          <img src="am-thuc-sai-gon.jpg">
+          <img src="thumb quà quê thành nam.png">
         </div>
         <div class="card-content">
           <p class="meta">8 GIỜ TRƯỚC • DU LỊCH</p>
-          <h4>Bản Đồ Món Ngon Ven Đường Sài Gòn</h4>
-          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Cùng khám phá những "viên ngọc quý" ẩn mình trong các con hẻm...</p>
+          <h4>Bản đồ ẩm thực: Quà quê Thành Nam</h4>
+          <p class="body-text" style="font-size: 13px; opacity: 0.6;">Có dịp tới Thành Nam, du khách đừng
+quên ghé mua vài món đặc sản để gửi gắm
+đến người thân, bạn bè một chút hương vị
+của mảnh đất này nhé!</p>
         </div>
       </div>
+      <!-- Card 4 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb bát bún đũa.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">10 GIỜ TRƯỚC • VỊ TRĂM NĂM</p>
+
+    <h4>
+  <a href="bat-bun-dua.html" style="color:inherit; text-decoration:none;">
+    Bát bún đũa của người công nhân dệt
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+      Món ăn dân dã với
+sợi bún trắng ngần,
+mềm mại hòa quyện
+cùng gạch cua béo
+ngậy và nước dùng
+đậm đà của người
+Thành Nam này đã
+được vinh danh
+trong Top 100 món
+ăn đặc sản Việt Nam
+(2020 – 2021).
+    </p>
+  </div>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb hơn 1 thế kỉ.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">12 GIỜ TRƯỚC • ĐẶC SẢN</p>
+
+    <h4>
+  <a href="pho-bo-nam-dinh.html" style="color:inherit; text-decoration:none;">
+    Phở bò Nam Định: Hơn một thế kỷ vang danh ẩm thực Việt
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+     Từ những gánh phở
+rong của người làng
+Vân Cù cho đến khi theo
+chân người Việt tới hàng
+chục quốc gia trên thế giới.
+    </p>
+  </div>
+</div>
+
+<!-- Card 6 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb quà tiến vua.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">15 GIỜ TRƯỚC • DI SẢN</p>
+
+    <h4>
+  <a href="qua-tien-vua.html" style="color:inherit; text-decoration:none;">
+    Tìm về thức quà tiến vua của Thành Nam
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+      Những món quà quê từng xuất hiện trong mâm tiến cung triều Nguyễn...
+    </p>
+  </div>
+</div>
+
+<!-- Card 7 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb xíu páo thành nam.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">1 NGÀY TRƯỚC • KÝ ỨC</p>
+
+    <h4>
+  <a href="xiu-pao-thanh-nam.html" style="color:inherit; text-decoration:none;">
+    Trăm năm thương nhớ xíu páo Thành Nam
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+      Lớp vỏ nướng thơm mềm cùng phần nhân đậm đà đã trở thành biểu tượng...
+    </p>
+  </div>
+</div>
+
+<!-- Card 8 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb bánh gai truyền thống.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">2 NGÀY TRƯỚC • TRUYỀN THỐNG</p>
+
+    <h4>
+  <a href="banh-gai-thanh-nam.html" style="color:inherit; text-decoration:none;">
+    Về Thành Nam thưởng thức bánh gai truyền thống
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+      Thức bánh dân dã mang hương nếp, lá gai và ký ức quê nhà...
+    </p>
+  </div>
+</div>
     </div>
   </main>
 
@@ -1268,68 +1627,60 @@ nav a:hover{
     </div>
   </aside>
 </div>
-<section class="category-section">
-  <div class="section-title">
-    <h2>CHUYÊN MỤC</h2>
+<footer class="mega-footer">
+
+  <div class="footer-overlay"></div>
+
+  <div class="footer-content">
+
+    <!-- LEFT -->
+    <div class="footer-brand">
+
+      <img src="logo.png" class="footer-logo">
+
+      <p>
+        Tạp chí điện tử về ẩm thực và văn hoá Thành Nam.
+        Khám phá đặc sản, ký ức và tinh hoa ẩm thực Việt.
+      </p>
+
+      <div class="footer-socials">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+
+    </div>
+
+    <!-- CENTER -->
+    <div class="footer-links">
+
+      <h3>Chuyên Mục</h3>
+
+      <a href="#">Vị Nhà</a>
+      <a href="#">Vị Phố</a>
+      <a href="#">Vị Trăm Năm</a>
+      <a href="#">Vị Truyền</a>
+      <a href="#">MINIGAME</a>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="footer-contact">
+
+      <h3>Liên Hệ</h3>
+
+      <p><i class="fa fa-envelope"></i> contact@vithanhnam.vn</p>
+
+      <p><i class="fa fa-phone"></i> +84 123 456 789</p>
+
+      <p><i class="fa fa-location-dot"></i> Nam Định, Việt Nam</p>
+
+    </div>
+
+  </div>
   </div>
 
-  <div class="category-grid">
-
-    <!-- VỊ TRĂM NĂM -->
-    <div class="category-col">
-      <h3>VỊ TRĂM NĂM</h3>
-      <ul>
-        <li>Phở bò Nam Định: Hơn một thế kỷ vang danh ẩm thực Việt</li>
-        <li>Tìm về thức quà tiến vua xưa của Thành Nam</li>
-        <li>Bát bún đũa của người thợ dệt</li>
-        <li>Trăm năm thương nhớ xíu páo Thành Nam</li>
-        <li>Về Thành Nam thưởng thức món bánh gai truyền thống</li>
-      </ul>
-    </div>
-
-    <!-- VỊ PHỐ -->
-    <div class="category-col">
-      <h3>VỊ PHỐ</h3>
-      <ul>
-        <li>
-  <a href="food-map.html">
-    Bản đồ ẩm thực: Ăn gì cho no?
-  </a>
-</li>
-       <li>
-  <a href="an-vat-xe-chieu.html">
-    Bản đồ ẩm thực: Ăn vặt xế chiều
-  </a>
-</li>
-        <li>
-  <a href="qua-que-thanh-nam.html">
-    Bản đồ ẩm thực: Quà quê Thành Nam
-  </a>
-</li>
-      </ul>
-    </div>
-
-    <!-- VỊ TRUYỀN -->
-    <div class="category-col">
-      <h3>VỊ TRUYỀN</h3>
-      <ul>
-        <li>Mâm cơm xưa của người Bắc</li>
-        <li>Nét tinh tế trong ẩm thực cung đình</li>
-        <li>Gia vị truyền thống làm nên hồn Việt</li>
-      </ul>
-    </div>
-
-    <!-- VỊ NHÀ -->
-    <div class="category-col">
-      <h3>VỊ NHÀ</h3>
-      <ul>
-        <li>Bữa cơm gia đình ấm cúng</li>
-        <li>Món ăn tuổi thơ khó quên</li>
-        <li>Ẩm thực gắn liền ký ức</li>
-      </ul>
-    </div>
-<div class="line-3"></div>
-  </div>
+</footer>
 </section>
 <footer style="padding: 50px 5%; border-top: 1px solid var(--glass-border); text-align: center;">
   <img src="logo.png" alt="Logo" style="height: 40px; margin-bottom: 20px; opacity: 0.5;">
