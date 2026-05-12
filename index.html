@@ -304,11 +304,14 @@ nav a.active { color: var(--gold-main); }
 
 }
 /* 2. NÂNG CẤP HERO SECTION */
-.hero {
+.hero{
   position: relative;
-  height: 450px;
+  height: 650px; /* tăng chiều cao */
   border-radius: 25px;
   overflow: hidden;
+
+  width: 96%;
+  margin: 20px auto;
 }
 
 /* slides */
@@ -321,16 +324,18 @@ nav a.active { color: var(--gold-main); }
   position:absolute;
   inset:0;
 
-  background-size:cover;
-  background-position:center;
+  background-size: 100% auto;
+background-repeat:no-repeat;
+background-position:center;
+  background-repeat: no-repeat;
+  background-position: center;
 
   opacity:0;
 
-  transform:scale(1.08);
+  background-color:#111;
 
   transition:
-  opacity 1s ease,
-  transform 6s ease;
+  opacity 1s ease;
 }
 
 .slide.active{
@@ -385,9 +390,17 @@ nav a.active { color: var(--gold-main); }
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 60px;
   font-weight: 800;
   line-height: 1.2;
+  font-size:96px;
+}
+.hero h1{
+  font-size:110px;
+  line-height:0.95;
+}
+.hero-content{
+  max-width:850px;
 }
 
 .hero h1 span {
@@ -786,12 +799,199 @@ li a{
 .card h4 { font-size: 18px; margin-bottom: 12px; line-height: 1.4; }
 
 /* 4. SIDEBAR & ĐĂNG KÝ */
-.box {
-  background: var(--card-bg);
-  border: 1px solid var(--glass-border);
-  padding: 30px;
-  border-radius: 20px;
-  margin-bottom: 30px;
+.subscribe-box{
+  margin-top:40px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f7cb46,
+    #e6ad43
+  );
+
+  color:#111;
+
+  border:none;
+
+  box-shadow:
+  0 20px 40px rgba(247,203,70,0.18);
+}
+
+/* ===== SUBSCRIBE PREMIUM ===== */
+
+.subscribe-box{
+  margin-top:40px;
+
+  padding:38px 30px;
+
+  border-radius:28px;
+
+  background:
+  linear-gradient(
+    145deg,
+    #f7cb46 0%,
+    #f0bf3b 55%,
+    #d89f2e 100%
+  );
+
+  color:#111;
+
+  border:1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 20px 60px rgba(247,203,70,0.22);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+/* glow */
+
+.subscribe-box::before{
+  content:"";
+
+  position:absolute;
+
+  top:-120px;
+  right:-80px;
+
+  width:240px;
+  height:240px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    rgba(255,255,255,0.35),
+    transparent 70%
+  );
+}
+
+/* title */
+
+.subscribe-box h3{
+  font-size:34px;
+
+  line-height:1.1;
+
+  margin-bottom:18px;
+
+  font-weight:800;
+
+  color:#111;
+}
+
+/* desc */
+
+.subscribe-box p{
+  font-size:15px;
+
+  line-height:1.7;
+
+  opacity:.78;
+
+  margin-bottom:24px;
+}
+
+/* input */
+
+.subscribe-box input{
+  width:100%;
+
+  height:58px;
+
+  border:none;
+
+  border-radius:18px;
+
+  padding:0 20px;
+
+  font-size:14px;
+
+  background:
+  rgba(255,255,255,0.92);
+
+  outline:none;
+
+  margin-bottom:16px;
+
+  box-shadow:
+  inset 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* button */
+
+.btn-premium{
+  width:100%;
+
+  height:58px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:#171417;
+
+  color:#f7cb46;
+
+  font-size:15px;
+
+  font-weight:800;
+
+  letter-spacing:.5px;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+
+  box-shadow:
+  0 10px 24px rgba(0,0,0,0.22);
+}
+
+.btn-premium:hover{
+  transform:translateY(-3px);
+
+  background:#000;
+}
+
+.subscribe-box p{
+  line-height:1.7;
+  opacity:.85;
+}
+.subscribe-box{
+  margin-top:40px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f7cb46,
+    #e6ad43
+  );
+
+  color:#111;
+
+  border:none;
+
+  box-shadow:
+  0 20px 40px rgba(247,203,70,0.18);
+}
+
+.subscribe-box h3{
+  font-size:22px;
+  margin-bottom:14px;
+  color:#111;
+}
+
+.subscribe-box p{
+  line-height:1.7;
+  opacity:.85;
+}
+aside{
+  position:sticky;
+  top:110px;
+
+  align-self:start;
 }
 
 .cat-item {
@@ -813,13 +1013,51 @@ li a{
 
 .subscribe-box h3 { color: var(--black-bg); font-weight: 800; }
 
-.subscribe-box input {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
-  margin: 20px 0 10px;
-  background: rgba(255, 255, 255, 0.9);
+.subscribe-box input{
+  width:100%;
+
+  padding:16px 18px;
+
+  border:none;
+
+  border-radius:16px;
+
+  margin:22px 0 14px;
+
+  background:rgba(255,255,255,0.92);
+
+  font-size:14px;
+
+  outline:none;
+}
+
+.btn-premium{
+  width:100%;
+
+  padding:20px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:#111;
+
+  color:var(--gold-main);
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  transition:.3s ease;
+
+  box-shadow:
+  0 10px 24px rgba(0,0,0,0.18);
+}
+
+.btn-premium:hover{
+  transform:translateY(-2px);
 }
 
 .btn-premium {
@@ -1444,6 +1682,58 @@ nav a:hover{
 
   font-size:15px;
 }
+/* căn giữa toàn bộ khối */
+
+.footer-brand{
+  height:100%;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+}
+
+/* logo */
+
+.footer-logo{
+  width:320px;
+
+  margin:0 0 45px 0;
+}
+
+/* dòng chữ */
+
+.footer-brand p{
+  margin:0 0 45px 0;
+
+  font-size:clamp(18px,2vw,22px);
+
+  line-height:1.6;
+
+  color:rgba(255,255,255,0.88);
+
+  white-space: nowrap;
+}
+
+/* icon */
+
+.footer-socials{
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  gap:26px;
+
+  margin:0;
+  margin:0 0 45px 0;
+  justify-content:center;
+align-items:center;
+}
+
 /* ===== NEWS GRID ===== */
 
 .grid{
@@ -1560,7 +1850,47 @@ body:not(.light-mode) .card h4{
 body:not(.light-mode) .body-text{
   color:rgba(255,255,255,0.68)!important;
 }
+.cat-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
 
+  padding:14px 0;
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.06);
+
+  font-size:14px;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+}
+
+.cat-item i{
+  width:34px;
+  height:34px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+  rgba(247,203,70,0.12);
+
+  color:var(--gold-main);
+
+  font-size:14px;
+
+  flex-shrink:0;
+}
+
+.cat-item:hover{
+  transform:translateX(6px);
+  color:var(--gold-main);
+}
 /* RESPONSIVE */
 
 @media(max-width:1200px){
@@ -1596,6 +1926,132 @@ body:not(.light-mode) .body-text{
   .container { grid-template-columns: 1fr; }
   .hero h1 { font-size: 48px; }
 }
+/* LOGO FOOTER */
+
+.quiz-footer-logo{
+  width:130px;
+  height:130px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(247,203,70,0.18),
+    rgba(247,203,70,0.04)
+  );
+
+  border:
+  1px solid rgba(247,203,70,0.22);
+
+  box-shadow:
+    0 0 45px rgba(247,203,70,0.22);
+
+  margin-bottom:22px;
+
+  overflow:hidden;
+}
+
+.quiz-footer-logo img{
+  width:68%;
+  height:68%;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 10px rgba(247,203,70,0.25));
+}
+/* ===== REVIEW TITLE ===== */
+
+.review-heading{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin-bottom:28px;
+  text-transform:uppercase;
+}
+.review-heading{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  margin-top:70px;
+  margin-bottom:28px;
+
+  padding-left:0;
+  margin-left:0;
+}
+
+.review-line{
+  width:70px;
+  height:5px;
+
+  border-radius:999px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #eae2ff,
+    #b1c21c
+  );
+}
+
+.review-heading h2{
+  font-size:30px;
+
+  font-weight:600;
+
+  line-height:-1;
+
+  margin:0;
+
+  text-transform:uppercase;
+
+  background:
+  linear-gradient(
+    90deg,
+    #cec9dd,
+    #ebff3a
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.review-sub{
+  font-size:30px;
+
+  font-weight:700;
+
+  line-height:1;
+
+  margin:0;
+
+  text-transform:uppercase;
+
+  background:
+  linear-gradient(
+    90deg,
+    #cec9dd,
+    #ebff3a
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  letter-spacing:2px;
+}
+.tin-title:hover,
+.vi-pho-title:hover {
+    transform: scale(1.05);
+    color: #ffd369;
+}
 </style>
 </head>
 <body>
@@ -1616,10 +2072,26 @@ body:not(.light-mode) .body-text{
     <!-- VỊ TRĂM NĂM -->
     <div class="mega-col">
       <h3>VỊ TRĂM NĂM</h3>
+     <ul>
+    <li>
+      <a href="phu-thien-truong.html">
+        Từ phủ Thiên Trường xưa đến Thành Nam ngày nay
+      </a>
+    </li>
 
-   
-      </ul>
-    </div>
+    <li>
+      <a href="tram-nam-huong-vi.html">
+        Trăm năm hương vị đất Thành Nam
+      </a>
+    </li>
+
+    <li>
+      <a href="kho-nguyen-lieu.html">
+        Khai phá kho nguyên liệu vang danh ẩm thực Thành Nam
+      </a>
+    </li>
+  </ul>
+</div>
 
     <!-- VỊ PHỐ -->
     <div class="mega-col">
@@ -1675,31 +2147,60 @@ body:not(.light-mode) .body-text{
 </ul>
     </div>
 
-    <!-- VỊ TRUYỀN -->
-    <div class="mega-col">
-      <h3>VỊ TRUYỀN</h3>
+<div class="mega-col">
+      <!-- VỊ TRUYỀN -->
 
-      <ul>
-        <li>Mâm cơm xưa của người Bắc</li>
-        <li>Nét tinh tế trong ẩm thực cung đình</li>
-        <li>Gia vị truyền thống làm nên hồn Việt</li>
+<div class="mega-col">
+
+  <h3>VỊ TRUYỀN</h3>
+
+  <ul>
+
+    <li>
+      <a href="du-lich-am-thuc.html">
+        Tìm hướng đưa ẩm thực Nam Định trở thành sản phẩm du lịch hấp dẫn
+      </a>
+    </li>
+
+    <li>
+      <a href="am-thuc-thoi-dai-so.html">
+        Ẩm thực Nam Định “lên ngôi” trong thời đại số
+      </a>
+    </li>
+
+  </ul>
+
+</div>
       </ul>
     </div>
 
     <!-- VỊ NHÀ -->
-    <div class="mega-col">
-      <h3>VỊ NHÀ</h3>
 
-      <ul>
-        <li>Bữa cơm gia đình ấm cúng</li>
-        <li>Món ăn tuổi thơ khó quên</li>
-        <li>Ẩm thực gắn liền ký ức</li>
-      </ul>
-    </div>
+<div class="mega-col">
+
+  <h3>VỊ NHÀ</h3>
+
+  <ul>
+
+    <li>
+      <a href="Vào bếp nấu đặc sản Thành Nam cho bữa cơm nhà.html">
+        Vào bếp nấu đặc sản Thành Nam cho bữa cơm nhà
+      </a>
+    </li>
+
+    <li>
+      <a href="Làm quà vặt Thành Nam tại nhà.html">
+        Làm quà vặt Thành Nam tại nhà
+      </a>
+    </li>
+
+  </ul>
+
+</div>
 
   </div>
 </div>
-    <a>MINIGAME</a>
+    <a class="minigame-btn" onclick="openQuiz()">MINIGAME</a>
   </nav>
 
   <div class="header-icons">
@@ -1746,12 +2247,118 @@ body:not(.light-mode) .body-text{
 
 </div>
 
+<!-- ===== REVIEW TITLE ===== -->
+
+<div class="review-heading">
+
+  <div class="review-line"></div>
+
+  <div>
+    <span class="review-sub">
+      VỊ TRĂM NĂM
+    </span>
+  </div>
+
+</div>
 <div class="container">
   <main>
     <div class="section-header">
       <div class="section-title">
     <div class="grid">
-      
+
+<!-- Card 1 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb phuthientruong.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">12 GIỜ TRƯỚC • VỊ TRĂM NĂM</p>
+
+    <h4>
+  <a href="phu-thien-truong.html" style="color:inherit; text-decoration:none;">
+    Từ phủ Thiên Trường xưa đến Thành Nam ngày nay
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+     vùng đất Thành Nam,
+nay là phường Nam
+Định, tỉnh Ninh Bình
+đã trải qua những
+bước chuyển mình
+quan trọng.
+    </p>
+  </div>
+</div>     
+
+<!-- Card 2 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb hương vị trăm năm.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">12 GIỜ TRƯỚC • VỊ TRĂM NĂM</p>
+
+    <h4>
+  <a href="tram-nam-huong-vi.html" style="color:inherit; text-decoration:none;">
+    Trăm năm hương vị đất Thành Nam
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+    Kể từ khi nhà Trần cho xây dựng phủ Thiên Trường,
+đặt dấu mốc đầu tiên cho một đô thị Nam Định sau
+này, đến nay đã hơn 700 năm.
+    </p>
+  </div>
+</div>     
+
+<!-- Card 3 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb khai phá.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">12 GIỜ TRƯỚC • VỊ TRĂM NĂM</p>
+
+    <h4>
+  <a href="kho-nguyen-lieu.html" style="color:inherit; text-decoration:none;">
+    Khai phá kho nguyên liệu vang danh ẩm thực Thành Nam
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+    Dù thành phố Nam Định
+không trực tiếp giáp
+biển, nguồn thực phẩm
+nơi đây vẫn rất dồi dào
+nhờ sự kết nối với các
+vùng phía nam và ven
+biển như Hải Hậu, Giao
+Thủy, Nghĩa Hưng.
+    </p>
+  </div>
+</div>   
+</div>
+
+<!-- ===== VỊ PHỐ ===== -->
+
+<div class="review-heading" style="margin-top:70px;">
+
+  <div class="review-line"></div>
+
+  <div>
+    <span class="review-sub">
+      VỊ PHỐ
+    </span>
+  </div>
+</div>
+<div class="grid">
+
+  
 <!-- Card 5 -->
 <div class="card">
   <div class="card-img">
@@ -1919,16 +2526,159 @@ của mảnh đất này nhé!</p>
         </div>
       </div>
     </div>
+
+<!-- ===== VỊ TRUYỀN ===== -->
+
+<div class="review-heading" style="margin-top:70px;">
+
+  <div class="review-line"></div>
+
+  <div>
+    <span class="review-sub">
+      VỊ TRUYỀN
+    </span>
+  </div>
+</div>
+<div class="grid">
+
+  
+<!-- Card 5 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb Tìm hướng đưa ẩm thực Nam Định trở thành sản phẩm du lịch hấp dẫn.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">12 GIỜ TRƯỚC • VỊ TRUYỀN</p>
+
+    <h4>
+  <a href="Tìm hướng đưa ẩm thực Nam Định trở thành sản phẩm du lịch hấp dẫn.html" style="color:inherit; text-decoration:none;">
+    Tìm hướng đưa ẩm thực Nam Định trở thành sản phẩm du lịch hấp dẫn
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+    Vài năm trở lại đây, du
+lịch ẩm thực Nam Định
+có nhiều dấu hiệu khởi
+sắc nhờ sức lan tỏa của mạng xã hội.
+    </p>
+  </div>
+</div>
+
+
+
+
+<!-- Card 6 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb Ẩm thực Nam Định “lên ngôi” trong thời đại số.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">15 GIỜ TRƯỚC • VỊ TRUYỀN</p>
+
+    <h4>
+  <a href="am-thuc-thoi-dai-so.html" style="color:inherit; text-decoration:none;">
+    Ẩm thực Nam Định “lên ngôi” trong thời đại số
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+      Tìm hướng
+đưa ẩm thực
+Nam Định trở
+thành sản
+phẩm du lịch
+hấp dẫn</p>
+  </div>
+</div>
+</div>
+
+<!-- ===== VỊ NHÀ ===== -->
+
+<div class="review-heading" style="margin-top:70px;">
+
+  <div class="review-line"></div>
+
+  <div>
+    <span class="review-sub">
+      VỊ NHÀ
+    </span>
+  </div>
+</div>
+<div class="grid">
+
+  
+<!-- Card 5 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb Vào bếp nấu đặc sản Thành Nam cho bữa cơm nhà.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">12 GIỜ TRƯỚC • VỊ NHÀ</p>
+
+    <h4>
+  <a href="Vào bếp nấu đặc sản Thành Nam cho bữa cơm nhà.html" style="color:inherit; text-decoration:none;">
+    Vào bếp nấu đặc sản Thành Nam cho bữa cơm nhà
+
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+    Không cần đến Nam Định, bạn vẫn có thể tự tay nấu những món
+đặc sản quen thuộc của vùng đất này để tái hiện hương vị phố cũ
+ngay trong bữa cơm gia đình.
+    </p>
+  </div>
+</div>
+<!-- Card 6 -->
+<div class="card">
+  <div class="card-img">
+    <img src="thumb Làm quà vặt Thành Nam tại nhà.png">
+  </div>
+
+  <div class="card-content">
+    <p class="meta">15 GIỜ TRƯỚC • VỊ NHÀ</p>
+
+    <h4>
+  <a href="Làm quà vặt Thành Nam tại nhà.html" style="color:inherit; text-decoration:none;">
+   Làm quà vặt Thành Nam tại nhà
+  </a>
+</h4>
+
+    <p class="body-text" style="font-size:13px; opacity:0.6;">
+      Bánh gai, xíu páo, bánh mì Ba Lan, những món quà vặt nổi tiếng
+của Thành Nam đều có thể tự làm tại nhà và linh hoạt gia giảm gia
+vị theo khẩu vị riêng.
+    </p>
+  </div>
+</div>
   </main>
 
   <aside>
     <div class="box">
       <h3 style="color: var(--gold-main); font-size: 18px; margin-bottom: 20px;">CHUYÊN MỤC</h3>
-      <div class="cat-item"><span>🍜</span> Món ngon mỗi ngày</div>
-      <div class="cat-item"><span>📍</span> Đặc sản vùng miền</div>
-      <div class="cat-item"><span>🥗</span> Thực dưỡng & Chay</div>
-      <div class="cat-item"><span>🍷</span> Đồ uống & Bar</div>
-    </div>
+      <div class="cat-item">
+  <i class="fa-solid fa-utensils"></i>
+  <span>Món ngon mỗi ngày</span>
+</div>
+
+<div class="cat-item">
+  <i class="fa-solid fa-location-dot"></i>
+  <span>Đặc sản vùng miền</span>
+</div>
+
+<div class="cat-item">
+  <i class="fa-solid fa-leaf"></i>
+  <span>Thực dưỡng & Chay</span>
+</div>
+
+<div class="cat-item">
+  <i class="fa-solid fa-martini-glass"></i>
+  <span>Đồ uống & Bar</span>
+</div>
     
     <div class="box subscribe-box">
       <h3>ĐĂNG KÍ NHẬN TIN</h3>
@@ -2046,8 +2796,847 @@ dots.forEach((dot, i) => {
     showSlide(index);
   };
 });
-</script>
 
+</script>
+<!-- ================= MINIGAME POPUP ================= -->
+<div class="quiz-popup" id="quizPopup">
+  <div class="quiz-box">
+
+    <span class="close-quiz" onclick="closeQuiz()">
+      <i class="fa fa-times"></i>
+    </span>
+
+    <h2>MINIGAME</h2>
+
+    <div id="quiz-container"></div>
+
+    <button class="submit-quiz" onclick="submitQuiz()">
+  XEM KẾT QUẢ
+</button>
+
+<div class="quiz-footer">
+
+  <div class="quiz-footer-line"></div>
+
+ <div class="quiz-footer-logo">
+  <img src="logo.png" alt="logo">
+</div>
+
+  <div class="quiz-footer-text">
+    TẠP CHÍ ĐIỆN TỬ VỊ THÀNH NAM
+  </div>
+
+</div>
+
+<div id="quiz-result"></div>
+    </button>
+
+    <div id="quiz-result"></div>
+
+  </div>
+</div>
+
+<style>
+/* ===== MINIGAME ===== */
+
+.minigame-btn{
+  cursor:pointer;
+}
+
+.quiz-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.82);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:99999;
+
+  backdrop-filter:blur(8px);
+}
+
+.quiz-box{
+  width:min(900px,92%);
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  background:#171417;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:30px;
+
+  padding:45px;
+
+  color:white;
+
+  position:relative;
+
+  box-shadow:
+  0 30px 80px rgba(0,0,0,0.5);
+}
+
+.quiz-box h2{
+  font-size:42px;
+  margin-bottom:35px;
+  color:var(--gold-main);
+  text-align:center;
+}
+
+.question{
+  margin-bottom:35px;
+}
+
+.question h3{
+  font-size:20px;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+
+.answers label{
+  display:block;
+
+  padding:14px 18px;
+
+  margin-bottom:12px;
+
+  border-radius:14px;
+
+  background:rgba(255,255,255,0.05);
+
+  cursor:pointer;
+
+  transition:.25s ease;
+}
+
+.answers label:hover{
+  background:rgba(247,203,70,0.15);
+  border-color:var(--gold-main);
+}
+
+.answers input{
+  margin-right:10px;
+}
+
+.submit-quiz{
+  width:100%;
+  height:72px;
+
+  margin-top:25px;
+
+  border:none;
+
+  border-radius:22px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f4c542,
+    #d89f2e
+  );
+
+  color:#111;
+
+  font-size:18px;
+
+  font-family:'Poppins',sans-serif;
+
+  font-weight:600;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  transition:.35s ease;
+
+  box-shadow:
+    0 18px 45px rgba(247,203,70,0.22);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.submit-quiz:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+    0 25px 60px rgba(247,203,70,0.35);
+}
+
+.submit-quiz:hover{
+  transform:translateY(-3px);
+}
+
+#quiz-result{
+  margin-top:35px;
+
+  padding:25px;
+
+  border-radius:20px;
+
+  background:rgba(247,203,70,0.12);
+
+  line-height:1.8;
+
+  font-size:18px;
+
+  text-align:center;
+
+  display:none;
+}
+
+.close-quiz{
+  position:absolute;
+
+  top:20px;
+  right:25px;
+
+  font-size:24px;
+
+  cursor:pointer;
+
+  color:white;
+}
+
+.close-quiz:hover{
+  color:var(--gold-main);
+}
+/* =========================
+   LUXURY MINIGAME
+========================= */
+
+.quiz-popup{
+  position:fixed;
+  inset:0;
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  background:
+  radial-gradient(circle at top,
+  rgba(247,203,70,0.12),
+  transparent 30%),
+  rgba(0,0,0,0.88);
+
+  backdrop-filter:blur(12px);
+
+  z-index:99999;
+
+  animation:fadeIn .45s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+.review-sub{
+  font-size:30px;
+  font-weight:700;
+
+  background: linear-gradient(
+    90deg,
+    #cec9dd,
+    #ebff3a
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  letter-spacing:2px;
+}
+.quiz-box{
+  width:min(950px,92%);
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  padding:55px;
+
+  border-radius:36px;
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(20,20,20,0.96),
+  rgba(10,10,10,0.98));
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+  0 40px 120px rgba(0,0,0,0.7),
+  0 0 60px rgba(247,203,70,0.08);
+
+  position:relative;
+
+  animation:popup .5s ease;
+}
+
+@keyframes popup{
+  from{
+    transform:translateY(40px) scale(.96);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+}
+
+/* GOLD GLOW */
+
+.quiz-box::before{
+  content:"";
+
+  position:absolute;
+
+  top:-120px;
+  right:-120px;
+
+  width:300px;
+  height:300px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+  rgba(247,203,70,0.22),
+  transparent 70%);
+}
+
+/* TITLE */
+
+.quiz-box h2{
+  font-size:62px;
+
+  text-align:center;
+
+  margin-bottom:10px;
+
+  color:var(--gold-main);
+
+  font-weight:800;
+
+  letter-spacing:4px;
+
+  text-shadow:
+  0 0 25px rgba(247,203,70,0.28);
+}
+
+/* SUB */
+
+/* ===== LUXURY FOOTER ===== */
+
+.quiz-box::after{
+  content:"";
+
+  display:block;
+
+  width:100%;
+
+  height:90px;
+
+  margin-top:40px;
+
+  border-top:
+  1px solid rgba(247,203,70,0.18);
+
+  background:
+  radial-gradient(
+    circle at center,
+    rgba(247,203,70,0.08),
+    transparent 65%
+  );
+
+  position:relative;
+}
+
+/* decorative line */
+
+.quiz-footer{
+  margin-top:45px;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+/* icon */
+
+.quiz-footer-icon{
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(247,203,70,0.22),
+    rgba(247,203,70,0.08));
+
+  border:
+  1px solid rgba(247,203,70,0.22);
+
+  box-shadow:
+  0 0 25px rgba(247,203,70,0.18);
+
+  margin-bottom:18px;
+
+  color:var(--gold-main);
+
+  font-size:20px;
+}
+
+/* text */
+
+.quiz-footer-text{
+  font-size:13px;
+
+  letter-spacing:8px;
+
+  text-transform:uppercase;
+
+  color:rgba(255,255,255,0.42);
+
+  font-weight:500;
+}
+
+/* glow line */
+
+.quiz-footer-line{
+  width:180px;
+  height:1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(247,203,70,0.6),
+    transparent);
+
+  margin-bottom:25px;
+}
+
+
+/* CLOSE */
+
+.close-quiz{
+  position:absolute;
+
+  top:28px;
+  right:30px;
+
+  width:50px;
+  height:50px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  cursor:pointer;
+
+  font-size:18px;
+
+  transition:.3s ease;
+}
+
+.close-quiz:hover{
+  color:var(--gold-main);
+
+  transform:rotate(90deg);
+}
+
+/* QUESTION */
+
+.question{
+  margin-bottom:38px;
+
+  padding:30px;
+
+  border-radius:26px;
+
+  background:
+  rgba(255,255,255,0.03);
+
+  border:
+  1px solid rgba(255,255,255,0.05);
+
+  transition:.3s ease;
+}
+
+.question:hover{
+  border-color:
+  rgba(247,203,70,0.25);
+
+  transform:translateY(-3px);
+}
+
+.question h3{
+  font-size:22px;
+
+  line-height:1.7;
+
+  margin-bottom:22px;
+
+  color:#fff;
+
+  font-weight:700;
+}
+
+/* ANSWERS */
+
+.answers{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.answers label{
+  position:relative;
+
+  display:flex;
+  align-items:center;
+
+  padding:18px 22px;
+
+  border-radius:18px;
+
+  background:
+  rgba(255,255,255,0.04);
+
+  border:
+  1px solid rgba(255,255,255,0.06);
+
+  cursor:pointer;
+
+  transition:.25s ease;
+
+  overflow:hidden;
+}
+
+.answers label::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+  90deg,
+  rgba(247,203,70,0.12),
+  transparent);
+
+  opacity:0;
+
+  transition:.3s;
+}
+
+.answers label:hover::before{
+  opacity:1;
+}
+
+.answers label:hover{
+  border-color:
+  rgba(247,203,70,0.35);
+
+  transform:translateX(6px);
+}
+
+.answers input{
+  margin-right:14px;
+
+  accent-color:#f7cb46;
+
+  transform:scale(1.2);
+}
+
+/* BUTTON */
+
+.submit-quiz{
+  width:100%;
+  height:72px;
+
+  margin-top:25px;
+
+  border:none;
+
+  border-radius:22px;
+
+  background:
+  linear-gradient(
+  135deg,
+  #f7cb46,
+  #d89f2e);
+
+  color:#111;
+
+  font-size:17px;
+
+  font-weight:800;
+
+  letter-spacing:1px;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+
+  box-shadow:
+  0 20px 40px rgba(247,203,70,0.22);
+}
+
+.submit-quiz:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 28px 60px rgba(247,203,70,0.3);
+}
+
+/* RESULT */
+
+#quiz-result{
+  display:none;
+
+  margin-top:35px;
+
+  padding:35px;
+
+  border-radius:26px;
+
+  text-align:center;
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(247,203,70,0.12),
+  rgba(255,255,255,0.04));
+
+  border:
+  1px solid rgba(247,203,70,0.18);
+
+  animation:fadeResult .5s ease;
+}
+
+@keyframes fadeResult{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+#quiz-result h3{
+  font-size:34px;
+
+  margin-bottom:18px;
+
+  color:var(--gold-main);
+}
+
+#quiz-result p{
+  font-size:18px;
+
+  line-height:1.9;
+
+  color:rgba(255,255,255,0.82);
+}
+
+/* SCROLLBAR */
+
+.quiz-box::-webkit-scrollbar{
+  width:10px;
+}
+
+.quiz-box::-webkit-scrollbar-thumb{
+  background:
+  rgba(247,203,70,0.4);
+
+  border-radius:999px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .quiz-box{
+    padding:30px 22px;
+  }
+
+  .quiz-box h2{
+    font-size:42px;
+  }
+
+  .question{
+    padding:22px;
+  }
+
+  .question h3{
+    font-size:18px;
+  }
+
+}
+
+</style>
+
+<script>
+const quizData = [
+{
+q:"1. Vào thời nhà Nguyễn, Nam Định thuộc vùng đất có tên gọi là gì?",
+a:["Kinh Bắc","Sơn Nam Hạ","Sơn Nam Thượng"],
+correct:1
+},
+{
+q:"2. Phường Nam Định (Ninh Bình) có giáp biển không?",
+a:["Không","Có, giáp biển Rạng Đông","Có, giáp biển Thịnh Long"],
+correct:0
+},
+{
+q:"3. Những tính từ mô tả rõ nhất bản chất ẩm thực Nam Định là gì?",
+a:["Tinh tế, cầu kì","Dân dã, linh hoạt","Sang trọng, cầu kì"],
+correct:1
+},
+{
+q:"4. Tại sao làng Kênh lại có nghề làm bánh cuốn?",
+a:[
+"Vì người Hoa mang nghề làm bánh cuốn đến truyền lại",
+"Vì thời Trần, làng được giao đảm nhận việc làm các loại bánh từ bột gạo",
+"Vì làng nằm gần khu chợ chuyên bán gạo lớn nhất vùng"
+],
+correct:1
+},
+{
+q:"5. Đâu là tên làng nghề được mệnh danh là “cái nôi” của phở Nam Định?",
+a:["Tức Mặc","Cổ Lễ","Vân Cù"],
+correct:2
+},
+{
+q:"6. Đâu là tên một ngôi chợ ở Nam Định?",
+a:["Chợ Đông Ba","Chợ Diên Hồng","Chợ Đồng Xuân"],
+correct:1
+},
+{
+q:"7. Những đặc sản nào của Nam Định xưa từng được dùng để tiến vua?",
+a:["Xíu páo, nem nắm","Chuối ngự, bánh cuốn làng Kênh","Kẹo Sìu Châu, bánh gai"],
+correct:1
+},
+{
+q:"8. Ẩm thực Nam Định chịu ảnh hưởng từ cộng đồng người nước ngoài nào trong lịch sử?",
+a:["Người Nhật, người Hoa","Người Pháp, người Thái","Người Hoa, người Pháp"],
+correct:2
+},
+{
+q:"9. Trong bánh xíu páo không có nguyên liệu nào sau đây?",
+a:["Thịt xá xíu","Miến","Mộc nhĩ"],
+correct:1
+},
+{
+q:"10. Cho các nguyên liệu: bún, cua đồng, tóp mỡ, cà chua, có thể nấu được món gì của Nam Định?",
+a:["Bún đũa","Bún sung","Bún bung"],
+correct:0
+}
+];
+
+const quizContainer = document.getElementById("quiz-container");
+
+quizData.forEach((item,index)=>{
+  const div = document.createElement("div");
+
+  div.classList.add("question");
+
+  div.innerHTML = `
+    <h3>${item.q}</h3>
+
+    <div class="answers">
+      ${item.a.map((answer,i)=>`
+        <label>
+          <input type="radio" name="q${index}" value="${i}">
+          ${answer}
+        </label>
+      `).join("")}
+    </div>
+  `;
+
+  quizContainer.appendChild(div);
+});
+
+function openQuiz(){
+  document.getElementById("quizPopup").style.display="flex";
+}
+
+function closeQuiz(){
+  document.getElementById("quizPopup").style.display="none";
+}
+
+function submitQuiz(){
+
+  let score = 0;
+
+  quizData.forEach((q,index)=>{
+
+    const selected =
+    document.querySelector(`input[name="q${index}"]:checked`);
+
+    if(selected && Number(selected.value) === q.correct){
+      score++;
+    }
+
+  });
+
+  let message = "";
+
+  if(score === 10){
+    message = "Wow, trình độ như này thì cân nhắc mở kênh TikTok review đồ ăn luôn nha!";
+  }
+  else if(score >= 8){
+    message = "Suýt thì đúng hết rồi. Chỉ cần đi ăn thêm bát bún đũa và vài chiếc xíu páo là “master” kiến thức ẩm thực Thành Nam luôn rồi!";
+  }
+  else if(score >= 6){
+    message = "Cũng cũng rồi đó. Đọc lại tạp chí một lượt với đi ăn thêm bát bún phở và vài chiếc bánh gai là lên trình ngay.";
+  }
+  else{
+    message = "Hmm không sao cả, hành trình khám phá ẩm thực Thành Nam mới chỉ bắt đầu thôi mà. Bạn có thể đi foodtour Nam Định một chuyến để hiểu vì sao người ta mê đồ ăn nơi đây đến vậy nha!";
+  }
+
+  const result = document.getElementById("quiz-result");
+
+  result.style.display="block";
+
+  result.innerHTML = `
+    <h3>Bạn đúng ${score}/10 câu</h3>
+    <p>${message}</p>
+  `;
+}
+
+</script>
 </body>
 </html>
 </body>
