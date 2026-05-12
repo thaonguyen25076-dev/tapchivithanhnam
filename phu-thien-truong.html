@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Từ phủ Thiên Trường xưa đến Thành Nam ngày nay</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+  radial-gradient(circle at top left,
+  rgba(247,203,70,0.12),
+  transparent 25%),
+
+  radial-gradient(circle at bottom right,
+  rgba(255,140,0,0.08),
+  transparent 30%),
+
+  linear-gradient(
+  180deg,
+  #111111 0%,
+  #181818 40%,
+  #0d0d0d 100%);
+
+  overflow-x:hidden;
+
+  position:relative;
+}
+
+/* texture */
+
+body::before{
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  background-image:
+  url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+
+  opacity:0.18;
+
+  pointer-events:none;
+
+  z-index:-1;
+}
+
+/* section */
+
+.image-section{
+  width:100%;
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:60px 0;
+
+  position:relative;
+}
+
+/* glow */
+
+.image-section::before{
+  content:"";
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  background:
+  radial-gradient(
+  rgba(247,203,70,0.18),
+  transparent 70%);
+
+  filter:blur(100px);
+
+  z-index:-1;
+}
+
+/* image */
+
+.image-section img{
+  width:92%;
+  max-width:1600px;
+
+  border-radius:28px;
+
+  object-fit:cover;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+  0 30px 60px rgba(0,0,0,0.5);
+
+  transition:0.45s;
+}
+
+/* hover */
+
+.image-section img:hover{
+  transform:scale(1.01);
+}
+
+/* spacing */
+
+.spacer{
+  height:80px;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.image-section{
+  min-height:auto;
+  padding:20px 0;
+}
+
+.image-section img{
+  width:96%;
+  border-radius:18px;
+}
+
+.spacer{
+  height:30px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- IMAGE 1 -->
+
+<section class="image-section">
+
+  <img src="thumb phuthientruong.png">
+
+</section>
+
+<div class="spacer"></div>
+
+<!-- IMAGE 2 -->
+
+<section class="image-section">
+
+  <img src="phuthientruongtc.jpg">
+
+</section>
+
+</body>
+</html>
