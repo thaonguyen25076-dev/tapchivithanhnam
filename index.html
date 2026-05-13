@@ -8,7 +8,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --gold-light: #f2d65d;
@@ -173,6 +173,10 @@ nav a.active { color: var(--gold-main); }
   cursor: pointer;
 
   transition: 0.25s;
+  font-family:'Manrope',sans-serif;
+font-weight:500;
+letter-spacing:0.2px;
+line-height:1.9;
 }
 
 /* hover bài */
@@ -709,14 +713,24 @@ li a{
 }
 
 .body-text{
+  font-family:'Manrope',sans-serif;
+
   font-size:15px !important;
-  line-height:1.7;
-  color:#666 !important;
+
+  line-height:1.85;
+
+  font-weight:500;
+
+  letter-spacing:0.15px;
+
+  color:rgba(255,255,255,0.58)!important;
 
   display:-webkit-box;
   -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
   overflow:hidden;
+
+  margin-top:auto;
 }
 .card-img img{
   width:100%;
@@ -1700,8 +1714,9 @@ nav a:hover{
 /* logo */
 
 .footer-logo{
-  width:320px;
-
+  width:520px;
+  max-width:100%;
+  object-fit:contain;
   margin:0 0 45px 0;
 }
 
@@ -2029,7 +2044,7 @@ body:not(.light-mode) .body-text{
   linear-gradient(
     90deg,
     #cec9dd,
-    #ebff3a
+    #ffc936
   );
 
   -webkit-background-clip:text;
@@ -2050,7 +2065,7 @@ body:not(.light-mode) .body-text{
   linear-gradient(
     90deg,
     #cec9dd,
-    #ebff3a
+    #f7ce1a
   );
 
   -webkit-background-clip:text;
@@ -2581,7 +2596,6 @@ của mảnh đất này nhé!</p>
   </div>
 </div>
 <div class="grid">
-
   
 <!-- Card 5 -->
 <div class="card">
@@ -2703,22 +2717,22 @@ vị theo khẩu vị riêng.
       <h3 style="color: var(--gold-main); font-size: 18px; margin-bottom: 20px;">CHUYÊN MỤC</h3>
       <div class="cat-item">
   <i class="fa-solid fa-utensils"></i>
-  <span>Món ngon mỗi ngày</span>
+  <span>VỊ TRĂM NĂM</span>
 </div>
 
 <div class="cat-item">
   <i class="fa-solid fa-location-dot"></i>
-  <span>Đặc sản vùng miền</span>
+  <span>VỊ PHỐ</span>
 </div>
 
 <div class="cat-item">
   <i class="fa-solid fa-leaf"></i>
-  <span>Thực dưỡng & Chay</span>
+  <span>VỊ TRUYỀN</span>
 </div>
 
 <div class="cat-item">
   <i class="fa-solid fa-martini-glass"></i>
-  <span>Đồ uống & Bar</span>
+  <span>VỊ NHÀ</span>
 </div>
     
     <div class="box subscribe-box">
@@ -2772,7 +2786,7 @@ vị theo khẩu vị riêng.
 
       <p><i class="fa fa-envelope"></i> contact@vithanhnam.vn</p>
 
-      <p><i class="fa fa-phone"></i> +84 123 456 789</p>
+      <p><i class="fa fa-phone"></i> +84 941 147 128</p>
 
       <p><i class="fa fa-location-dot"></i> Nam Định, Việt Nam</p>
 
@@ -3082,19 +3096,29 @@ dots.forEach((dot, i) => {
   }
 }
 .review-sub{
-  font-size:30px;
-  font-weight:700;
-
   background: linear-gradient(
     90deg,
-    #cec9dd,
-    #ebff3a
+    #fff6c7 0%,
+    #f7cb46 35%,
+    #f0a43a 70%,
+    #ffd978 100%
   );
 
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
   letter-spacing:2px;
+
+  text-shadow:
+    0 0 18px rgba(247,203,70,0.18);
+}
+.review-line{
+  background: linear-gradient(
+    90deg,
+    #fff1b8,
+    #f7cb46,
+    #e69a2e
+  );
 }
 .quiz-box{
   width:min(950px,92%);
@@ -3750,8 +3774,24 @@ dots.forEach((dot, i) => {
   }
 
   .body-text{
-    font-size:13px !important;
-  }
+  font-size:15px !important;
+  line-height:1.9;
+
+  color:rgba(255,255,255,0.52)!important;
+
+  font-weight:500;
+
+  letter-spacing:0.2px;
+
+  font-family:'Montserrat',sans-serif;
+
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+
+  margin-top:auto;
+}
 
   /* SIDEBAR */
   aside{
@@ -4097,7 +4137,37 @@ body.light-mode #quiz-result{
   background:rgba(247,203,70,0.16);
   color:#111;
 }
+@media(max-width:768px){
 
+  .post-thumb{
+    height:260px !important;
+  }
+
+  .post-thumb img{
+    height:100%;
+    object-fit:cover;
+  }
+
+  .thumb-overlay{
+    padding:18px;
+    justify-content:flex-end;
+  }
+
+  .thumb-overlay h3{
+    font-size:26px;
+    line-height:1.15;
+    margin-top:10px;
+  }
+
+  .thumb-tag{
+    font-size:11px;
+    padding:6px 12px;
+  }
+
+}
+.post-thumb{
+  height:290px !important;
+}
 </style>
 
 <script>
