@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vị Thành Nam - Tạp chí quảng bá ẩm thực phường Nam Định</title>
@@ -1976,13 +1977,14 @@ body:not(.light-mode) .body-text{
 
   margin-bottom:28px;
   text-transform:uppercase;
+  
 }
 .review-heading{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
 
-  margin-top:70px;
+  margin-top:50px;
   margin-bottom:28px;
 
   padding-left:0;
@@ -2250,7 +2252,7 @@ body:not(.light-mode) .body-text{
 <!-- ===== REVIEW TITLE ===== -->
 
 <div class="review-heading">
-
+<div class="review-heading" style="padding-left:45px; margin-bottom:-40px;"></div>
   <div class="review-line"></div>
 
   <div>
@@ -3501,6 +3503,103 @@ dots.forEach((dot, i) => {
 
   .question h3{
     font-size:18px;
+  }
+
+}
+@media (max-width: 768px){
+
+  /* NAVBAR */
+  .navbar{
+    padding:16px 18px;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .nav-links{
+    width:100%;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+
+  .nav-links a{
+    font-size:14px;
+  }
+
+  /* LOGO */
+  .logo img{
+    height:48px;
+  }
+
+  /* TITLE */
+  .review-heading{
+    padding-left:18px !important;
+    margin-top:40px;
+  }
+
+  .review-sub{
+    font-size:32px;
+    line-height:1.1;
+  }
+
+  .review-line{
+    width:48px;
+  }
+
+  /* GRID */
+  .review-grid,
+  .cards-grid,
+  .articles-grid{
+    grid-template-columns:1fr !important;
+    gap:20px;
+    padding:0 16px;
+  }
+
+  /* CARD */
+  .card{
+    width:100%;
+  }
+
+  .card img{
+    height:230px;
+    object-fit:cover;
+  }
+
+  .card-content{
+    padding:18px;
+  }
+
+  .card-title{
+    font-size:24px;
+    line-height:1.4;
+  }
+
+  .card-desc{
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  /* FOOTER */
+  footer{
+    padding:40px 20px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  /* EMAIL BOX */
+  .newsletter-box{
+    flex-direction:column;
+  }
+
+  .newsletter-box input{
+    width:100%;
+  }
+
+  .newsletter-box button{
+    width:100%;
   }
 
 }
