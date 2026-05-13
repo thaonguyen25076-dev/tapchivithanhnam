@@ -3892,6 +3892,94 @@ body.light-mode .review-line{
     #c89b2b
   );
 }
+/* ================= LIGHT MODE MINIGAME FIX ================= */
+
+body.light-mode .quiz-box{
+  background:
+  linear-gradient(
+    145deg,
+    #ffffff,
+    #f3efe7
+  );
+
+  border:1px solid rgba(200,155,43,0.18);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+  color:#111;
+}
+
+/* title */
+
+body.light-mode .quiz-box h3{
+  color:#111;
+}
+
+/* question */
+
+body.light-mode .quiz-question{
+  color:#333;
+  font-weight:500;
+}
+
+/* answers */
+
+body.light-mode .answers label{
+  background:#ffffff;
+
+  border:1px solid rgba(0,0,0,0.08);
+
+  color:#111;
+
+  transition:0.25s;
+}
+
+body.light-mode .answers label:hover{
+  background:#c89b2b;
+
+  color:#fff;
+
+  transform:translateY(-2px);
+}
+
+/* selected */
+
+body.light-mode .answers input:checked + span{
+  color:#c89b2b;
+  font-weight:700;
+}
+
+/* result box */
+
+body.light-mode #quiz-result{
+  background:
+  linear-gradient(
+    135deg,
+    rgba(200,155,43,0.18),
+    rgba(255,255,255,0.9)
+  );
+
+  border:1px solid rgba(200,155,43,0.2);
+
+  color:#111;
+}
+
+/* button */
+
+body.light-mode .quiz-btn{
+  background:#111;
+  color:#fff;
+
+  border:none;
+}
+
+body.light-mode .quiz-btn:hover{
+  background:#c89b2b;
+  color:#fff;
+
+  transform:translateY(-2px);
+}
 
 /* MEGA MENU */
 
