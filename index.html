@@ -3784,6 +3784,231 @@ dots.forEach((dot, i) => {
     height:auto;
   }
 }
+/* ================= LIGHT MODE FULL FIX ================= */
+
+body.light-mode{
+  background:#f5f5f5;
+  color:#111;
+}
+
+/* HEADER */
+
+body.light-mode header{
+  background:rgba(255,255,255,0.92);
+
+  border-bottom:1px solid rgba(0,0,0,0.08);
+
+  backdrop-filter:blur(14px);
+}
+
+body.light-mode nav a{
+  color:#111;
+}
+
+body.light-mode nav a.active,
+body.light-mode nav a:hover{
+  color:#c89b2b;
+}
+
+/* HERO */
+
+body.light-mode .hero::before{
+  background:
+  linear-gradient(
+    90deg,
+    rgba(255,255,255,0.88) 0%,
+    rgba(255,255,255,0.35) 60%,
+    transparent 100%
+  );
+}
+
+body.light-mode .hero h1{
+  color:#111 !important;
+}
+
+body.light-mode .desc{
+  color:#333;
+}
+
+body.light-mode .tag{
+  background:rgba(200,155,43,0.12);
+  color:#a87400;
+}
+
+/* BUTTON */
+
+body.light-mode .btn-hero{
+  border:2px solid #c89b2b;
+  color:#c89b2b;
+}
+
+body.light-mode .btn-hero:hover{
+  background:#c89b2b;
+  color:#fff;
+}
+
+/* CARD */
+
+body.light-mode .card{
+  background:#ffffff;
+
+  border:1px solid rgba(0,0,0,0.06);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.06);
+}
+
+body.light-mode .card h4{
+  color:#111;
+}
+
+body.light-mode .body-text{
+  color:#555 !important;
+}
+
+body.light-mode .meta{
+  color:#b8860b;
+}
+
+/* REVIEW TITLE */
+
+body.light-mode .review-sub{
+  background:
+  linear-gradient(
+    90deg,
+    #111,
+    #c89b2b
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+body.light-mode .review-line{
+  background:
+  linear-gradient(
+    90deg,
+    #111,
+    #c89b2b
+  );
+}
+
+/* MEGA MENU */
+
+body.light-mode .mega-menu{
+  background:rgba(255,255,255,0.95);
+
+  border:1px solid rgba(0,0,0,0.08);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.08);
+}
+
+body.light-mode .mega-col h3{
+  color:#b8860b;
+}
+
+body.light-mode .mega-col li{
+  color:#333;
+}
+
+body.light-mode .mega-col li:hover{
+  color:#c89b2b;
+}
+
+/* SIDEBAR */
+
+body.light-mode .cat-item{
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+
+body.light-mode .cat-item span{
+  color:#222;
+}
+
+/* SUBSCRIBE */
+
+body.light-mode .subscribe-box{
+  background:
+  linear-gradient(
+    135deg,
+    #f7cb46,
+    #e0a92d
+  );
+
+  color:#111;
+}
+
+body.light-mode .subscribe-box input{
+  background:#fff;
+  color:#111;
+}
+
+/* FOOTER */
+
+body.light-mode .mega-footer{
+  color:#111;
+}
+
+body.light-mode .footer-overlay{
+  background:
+  linear-gradient(
+    rgba(232,228,220,0.5)
+  );
+
+  backdrop-filter:blur(1px);
+}
+body.light-mode .mega-footer{
+  border-top:1px solid rgba(0,0,0,0.06);
+}
+
+body.light-mode .footer-socials i{
+  background:rgba(0,0,0,0.06);
+
+  transition:0.3s;
+}
+
+body.light-mode .footer-socials i:hover{
+  background:#c89b2b;
+  color:#e4dbdb;
+}
+
+body.light-mode .footer-links a:hover{
+  color:#c89b2b;
+}
+
+body.light-mode .footer-links a,
+body.light-mode .footer-contact p,
+body.light-mode .footer-brand p{
+  color:#222;
+}
+
+body.light-mode .footer-links h3,
+body.light-mode .footer-contact h3{
+  color:#111;
+}
+
+body.light-mode .footer-socials i{
+  background:rgba(0,0,0,0.05);
+  color:#111;
+}
+
+/* QUIZ */
+
+body.light-mode .quiz-box{
+  background:#ffffff;
+  color:#111;
+}
+
+body.light-mode .answers label{
+  background:#f3f3f3;
+  color:#111;
+}
+
+body.light-mode #quiz-result{
+  background:rgba(247,203,70,0.16);
+  color:#111;
+}
 
 </style>
 
