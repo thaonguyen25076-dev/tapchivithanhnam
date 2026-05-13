@@ -1985,10 +1985,19 @@ body:not(.light-mode) .body-text{
   gap:10px;
 
   margin-top:50px;
-  margin-bottom:28px;
+  margin-bottom:12px; /* giảm khoảng cách xuống */
+  
+  padding-left:10px;
+}
 
-  padding-left:0;
-  margin-left:0;
+.container{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  gap:40px;
+
+  width:min(1400px,92%);
+
+  margin:20px auto; /* trước là 80px auto */
 }
 
 .review-line{
@@ -2183,9 +2192,7 @@ html,body{
 </ul>
     </div>
 
-<div class="mega-col">
-      <!-- VỊ TRUYỀN -->
-
+<!-- VỊ TRUYỀN -->
 <div class="mega-col">
 
   <h3>VỊ TRUYỀN</h3>
@@ -2207,8 +2214,6 @@ html,body{
   </ul>
 
 </div>
-      </ul>
-    </div>
 
     <!-- VỊ NHÀ -->
 
@@ -3636,6 +3641,148 @@ dots.forEach((dot, i) => {
     width:100%;
   }
 
+}
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  /* HEADER */
+  header{
+    height:auto;
+    padding:12px 16px;
+
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .logo img{
+    height:70px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+  }
+
+  nav a,
+  .mega-link,
+  .minigame-btn{
+    font-size:12px;
+  }
+
+  /* HERO */
+  .hero{
+    width:94%;
+    height:420px;
+    margin:14px auto;
+    border-radius:20px;
+  }
+
+  .hero-content{
+    padding:28px;
+    max-width:100%;
+  }
+
+  .hero h1{
+    font-size:42px !important;
+    line-height:1.05;
+  }
+
+  .desc{
+    font-size:14px;
+  }
+
+  .btn-hero{
+    padding:10px 18px;
+    font-size:13px;
+  }
+
+  /* MEGA MENU */
+  .mega-menu{
+    width:95vw;
+    left:50%;
+    transform:translateX(-50%);
+    grid-template-columns:1fr;
+    gap:24px;
+
+    padding:28px;
+    max-height:75vh;
+
+    overflow-y:auto;
+  }
+
+  /* SECTION TITLE */
+  .review-heading{
+    padding-left:18px !important;
+    margin-top:40px;
+    margin-bottom:16px;
+  }
+
+  .review-sub{
+    font-size:22px;
+  }
+
+  /* GRID */
+  .grid{
+    grid-template-columns:1fr !important;
+    gap:20px;
+  }
+
+  .container{
+    width:94%;
+    margin:20px auto;
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  /* CARD */
+  .card{
+    width:100%;
+  }
+
+  .card h4{
+    font-size:17px;
+  }
+
+  .body-text{
+    font-size:13px !important;
+  }
+
+  /* SIDEBAR */
+  aside{
+    position:static;
+  }
+
+  /* FOOTER */
+  .footer-content{
+    grid-template-columns:1fr;
+    gap:40px;
+
+    text-align:center;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-contact{
+    align-items:center;
+  }
+
+  .footer-logo{
+    width:220px;
+  }
+
+  /* FIX OVERFLOW */
+  img,
+  video,
+  iframe{
+    max-width:100%;
+    height:auto;
+  }
 }
 
 </style>
