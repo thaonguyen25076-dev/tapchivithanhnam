@@ -2054,6 +2054,40 @@ body:not(.light-mode) .body-text{
     transform: scale(1.05);
     color: #ffd369;
 }
+html,body{
+  overflow-x:hidden;
+  max-width:100%;
+}
+@media (max-width:768px){
+
+  .minigame-section,
+  .minigame-container,
+  .game-wrapper{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+    padding:0 16px;
+    box-sizing:border-box;
+  }
+
+  .minigame-section img,
+  .minigame-container img,
+  .game-wrapper img,
+  canvas,
+  iframe{
+    max-width:100%;
+    height:auto;
+  }
+
+  .minigame-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .minigame-card{
+    width:100%;
+  }
+
+}
 </style>
 </head>
 <body>
@@ -3734,6 +3768,7 @@ function submitQuiz(){
     <p>${message}</p>
   `;
 }
+
 
 </script>
 </body>
